@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+  <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
+  <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+  <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+
+<body>
+  <div class="container">
+     <!-- <h3 th:object="${movie}" th:text="${impression}"></h3> -->
+      <table class="table">
+      <thead>
+        <th>#</th>
+        <th>Title</th>
+        <th>評価</th>
+        <th>Day</th>
+      </thead>
+      <tbody>
+        <tr th:each="impression : ${impression}" th:object="${impression}">
+          <td th:text="*{id}"></td>
+          <td>
+            <a th:href="@{/viewer/{id}/show(id=*{id})}" th:text=*{movie.title}></a>
+          </td>
+          <td th:text="*{evaluation}"></td>
+          <td th:text="*{date}"></td>
+        </tr>
+      </tbody>
+    </table>
+
+</body>
+
+</html>

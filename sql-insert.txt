@@ -1,0 +1,23 @@
+insert into movie(title, director) values ('いとみち','横浜聡子'),('ガイアシンフォ
+ニー','龍村仁'),('息子のままで、女子になる','村岡太樹'),('グラデーション','椎名
+零'),('ザ・ファブル','江口カン'),('ヒノマルソウル','飯塚健');
+
+
+insert into user(username,mastar,password) values('tomoki','false','111111'),('miura','false', '111111');
+
+
+
+insert into impression(evaluation, movie_id,date,release,user_id) values ('1','1','2021-06-21','true','1')
+,('3','2','2021-06-21','false','1'),('2','3','2021-06-21','false','1'),('2','4','2021-06-21','false','1')
+, ('3','6','2021-06-21','true','2'), ('1','3','2021-06-21','true','2'), ('2','5','2021-06-21','true','2');
+
+
+
+insert into comment(impression_id,comment,date) values('1','それはない！','2021-06-22');
+
+update impression
+set impress='面白かった'
+where id=1;
+update impression
+set impress='寝た'
+where id=3;

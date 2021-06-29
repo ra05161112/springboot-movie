@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+  <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
+  <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+  <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+
+<body>
+ <div class="container">
+   <form  th:method="patch" th:action="@{/admin/{id}/edit}" th:object="${impression}">
+    <div class="form-group">
+      <label for="evaluation">評価 :</label>
+      <input type="text" th:field="${impression.evaluation}">
+    </div>
+    <div class="form-group">
+      <label for="impress">感想 :</label>
+      <textarea rows="10" cols="60" th:field="*{impress}"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="date">見た日 :</label>
+      <input type="date" th:field="*{date}">
+    </div>
+    <div class="form-group">
+      <label for="release">公開 :</label>
+      <input type="checkbox" th:field="*{release}">
+    </div>
+    <div>
+      <label for="movie">映画タイトル：</label>
+      <select class="form-control" th:field="*{movie}">
+        <th:block th:each="movie : ${@movieRepository.findAll()}">
+          <option th:value="${movie.id}" th:text="${movie.title}">
+          </option>
+        </th:block>
+      </select>
+    </div>
+    <input type="submit" value="更新">
+    <input type="reset">
+  </form>
+  <a th:href="@{/admin/{id}/home}"></a>
+ </div>
+</body>
+
+</html>

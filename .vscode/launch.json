@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-MovieApplication<movie>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "mainClass": "cm.itspj.java.movie.MovieApplication",
+      "projectName": "movie",
+      "args": ""
+    }
+  ]
+}

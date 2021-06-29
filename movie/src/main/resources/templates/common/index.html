@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+  <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
+  <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+  <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+  
+  <!-- ユーザIDとEMail -->
+  <div sec:authorize="isAuthenticated()">
+    <p sec:authentication="principal.userId"></p>
+    <p sec:authentication="principal.username"></p>
+
+  </div>
+  <br>
+  <div sec:authorize="hasRole('ADMIN')">
+    you are admin!
+  </div>
+  <div th:unless="${#authorization.expression('hasRole(''ADMIN'')')}">
+    you are not admin...
+  </div>
+  <br>
+  <a th:href="@{/viewer/home}">一般公開ページへ</a><br>
+  <a th:href="@{/admin/{id}/home(id=${userId})}">Your Page</a>
+  <div sec:authorize="isAuthenticated()">
+  </div>
+</html>

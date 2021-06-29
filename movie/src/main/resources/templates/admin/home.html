@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+  <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
+  <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+  <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+</head>
+
+<body>
+  <div class="container">
+    <h3>たいとる</h3>
+
+    <table class="table">
+      <h4>貴方が見た映画</h4>
+      <thead>
+        <th>#</th>
+        <th>映画タイトル</th>
+        <th></th>
+      </thead>
+      <tbody>
+        <tr th:each="impression : ${implist}" th:object="${impression}">
+          <td th:text="*{id}"></td>
+          <td>
+            <a th:href="@{/admin/{id}/show(id=*{id})}" th:text="*{movie.title}"></a>
+            <td>
+              <a th:href="@{/admin/{id}/edit(id=*{id})}" class="btn btn-outline-primary">編集</a>
+            </td>
+          </td>
+        </tr>
+        <td>
+          <a th:href="@{/admin/{id}/new(id=*{id})}">新規作成</a>
+        </td>
+      </tbody>
+    </table>
+    <table class="table">
+      <h4>公開中の映画</h4>
+      <thead>
+        <th>#</th>
+        <th>映画タイトル</th>
+        <th></th>
+      </thead>
+      <tbody>
+        <tr th:each="movie : ${movielist}" th:object="${movie}">
+          <td th:text="*{id}"></td>
+          <td>
+            <a th:href="@{/movie/{id}/list(id=*{id})}" th:text="*{title}"></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+ <a th:href="@{/}">ログアウト</a>
+ <br>
+ <a th:href="@{/viewer/home}">一般公開ページ</a>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+  <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
+  <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+  <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+</head>
+
+<body>
+  <div class="container">
+
+  <ul th:if="${impression}" th:object="${impression}">
+    <li>タイトル : [[*{movie.title}]]</li>
+    <li>監督 : [[*{movie.director}]]</li>
+    <li>見た日 : [[*{date}]]</li>
+    <li>評価 : [[*{evaluation}]]</li>
+    <li>感想 : [[*{impress}]]</li>
+  </ul>
+  <h1 th:unless="${impression}" th:text="データがありません"></h1>
+  <a th:href="@{/viewer/home}">top page</a>
+  </div>
+
+</html>
