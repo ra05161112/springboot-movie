@@ -30,12 +30,12 @@
           <td>
             <a th:href="@{/admin/{id}/show(id=*{id})}" th:text="*{movie.title}"></a>
             <td>
-              <a th:href="@{/admin/{id}/edit(id=*{id})}" class="btn btn-outline-primary">編集</a>
+              <a th:href="@{/admin/{userid}/{impid}/edit(impid=${impression.id},userid=*{user.id})}" class="btn btn-outline-primary">編集</a>
             </td>
           </td>
         </tr>
         <td>
-          <a th:href="@{/admin/{id}/new(id=*{id})}">新規作成</a>
+          <a th:href="@{/admin/{userid}/new(userid=*{id})}">新規作成</a>
         </td>
       </tbody>
     </table>

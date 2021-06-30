@@ -15,7 +15,7 @@
 <body>
   <h2>新規投稿</h2>
 
-  <form th:action="@{/admin/{userid}/new(userid=*{id})}" th:object="${impression}"  th:method="post" novalidate>
+  <form th:action="@{/admin/{userid}/new(userid=${userId})}" th:object="${impression}"  th:method="post" novalidate>
   
 
     <div class="form-group">
@@ -47,7 +47,7 @@
   <label for="user">user</label>
   <select class="form-control" th:field="*{user}">
     <th:brock th:each="user : user">
-      <option th:value="*{id}" >
+      <option th:value="${userid}" >
 
       </option>
     </th:brock>

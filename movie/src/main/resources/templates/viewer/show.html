@@ -23,7 +23,9 @@
     <li>評価 : [[*{evaluation}]]</li>
     <li>感想 : [[*{impress}]]</li>
   </ul>
+
   <h1 th:unless="${impression}" th:text="データがありません"></h1>
+  <a th:href="@{/viewer/{impid}/comment(impid=*{id})}">コメントをする</a><br>
   <a th:href="@{/viewer/home}">top page</a>
   </div>
 

@@ -21,3 +21,8 @@ where id=1;
 update impression
 set impress='寝た'
 where id=3;
+
+insert into comment(comment, date, impression_id) values ('詰まらなかった','2021-06-03', '1'),('面白かった','2021-06-03', '1');
+
+
+insert into comment(comment, date, impression_id) values ('詰まらなかった','2021-06-03', '6'),('面白かった','2021-06-03', '6'),('面白かった','2021-06-03', '6');

@@ -12,19 +12,19 @@
 </head>
 <body>
   
-  <!-- ユーザIDとEMail -->
-  <div sec:authorize="isAuthenticated()">
-    <p sec:authentication="principal.userId"></p>
-    <p sec:authentication="principal.username"></p>
 
-  </div>
+ <div>
+  <span>Hello</span>
+  <span sec:authentication="principal.username"></span>   
+ </div> 
+
   <br>
-  <div sec:authorize="hasRole('ADMIN')">
+  <!-- <div sec:authorize="hasRole('ADMIN')">
     you are admin!
   </div>
   <div th:unless="${#authorization.expression('hasRole(''ADMIN'')')}">
     you are not admin...
-  </div>
+  </div> -->
   <br>
   <a th:href="@{/viewer/home}">一般公開ページへ</a><br>
   <a th:href="@{/admin/{id}/home(id=${userId})}">Your Page</a>
