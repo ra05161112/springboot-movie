@@ -14,23 +14,24 @@
 </head>
 
 <body>
-  <form th:action="@{/viewer/{impid}/comment(impid=${impId})}" th:method="post" th:object="${comment}" novalidate>
+  <form th:action="@{/viewer/{impid}/comment(impid=${impId})}" th:object="${comment}"  th:method="post" novalidate>
 
 
       <div class="form-group">
-        <label for="comment">コメント :</label>
-        <input type="text" th:field="${comment.comment}">
-      </div>
-    <div>
-      <label for="impression">impression</label>
-      <select class="form-control"  th:field="*{impression}" >
-        <th:brock th:each="impression : impression">
-          <option th:value="${impid}" >
-    
-          </option>
-        </th:brock>
-      </select>
-    </div>
+          <label for="comment">comment :</label>
+          <input type="text" th:field="${comment.comment}">
+        </div>
+        <div class="form-group">
+          <label for="date">date</label>
+          <input type="date" th:field="*{date}">
+        </div>
+        <div>
+          <label for="impression">impression</label>
+          <select class="form-control" th:field="${comment.impression}">
+            
+              <option th:value="${impid}" ></option>
+          </select>
+        </div>
     <input type="submit" value="更新">
     <input type="reset">
   </body>

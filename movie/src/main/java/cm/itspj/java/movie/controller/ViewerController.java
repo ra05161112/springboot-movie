@@ -56,7 +56,7 @@ public class ViewerController {
   }
 
   @PostMapping("/{impid}/comment")
-  public String commentation(@Validated @ModelAttribute Comment comment, BindingResult result, @ModelAttribute Impression impression) {
+  public String commentation(@ModelAttribute Comment comment, @ModelAttribute Impression impression, BindingResult result) {
     if(result.hasErrors()) {
       return "viewer/home";
     }
