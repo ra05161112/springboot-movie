@@ -10,29 +10,31 @@
   <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
   <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
   <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
 </head>
 
 <body>
-  <div class="container" >
-      <table class="table">
+  <div class="container">
+    <h3>たいとる</h3>
+
+    <table class="table">
+      <h4>みんなが見た映画評価の高い順</h4>
       <thead>
         <th>#</th>
-        <th>Title</th>
-        <th>評価</th>
-        <th>Day</th>
+        <th>映画タイトル</th>
+        <th></th>
       </thead>
       <tbody>
-        <tr th:each="impression : ${impression}" th:object="${impression}" th:if="${impression.release eq true}">
+        <tr th:each="impression : ${implist}" th:object="${impression}" th:if="${impression.release eq true}">
           <td th:text="*{id}"></td>
           <td>
-            <a th:href="@{/viewer/{id}/show(id=*{id})}" th:text=*{movie.title}></a>
+            <a th:href="@{/viewer/{id}/show(id=*{id})}" th:text="*{movie.title}"></a>
           </td>
-          <td th:text="*{evaluation}"></td>
-          <td th:text="*{date}"></td>
         </tr>
       </tbody>
     </table>
-
+   <a th:href="@{/viewer/all}">戻る</a>
+  </div>
+ 
 </body>
-
 </html>

@@ -10,10 +10,10 @@
   <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
   <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
   <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-
+  <link rel="stylesheet" href="viewer.css" type="text/css" >
 </head>
 
-<body>
+<body class="home">
   <div class="container">
     <h3>たいとる</h3>
 
@@ -32,6 +32,7 @@
           </td>
         </tr>
       </tbody>
+      <a th:href="@{/viewer/all}">more...</a>
     </table>
     <table class="table">
       <h4>公開中の映画</h4>

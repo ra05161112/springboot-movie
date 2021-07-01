@@ -30,7 +30,7 @@ public class Impression {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   public int id;
 
-  /**評価（3-5段階）*/
+  /**評価（5段階）notnull */
   @NotNull
   @Max(5)
   public int evaluation;
@@ -42,12 +42,12 @@ public class Impression {
   @ManyToOne
   public Movie movie;
 
-  /**見た日*/
+  /**見た日 notnull*/
   @DateTimeFormat(iso = ISO.DATE)
   @NotNull
   public LocalDate date;
 
-  /**公開か非公開か*/
+  /**公開か非公開か boolean */
   @NotNull
   public boolean release;
 

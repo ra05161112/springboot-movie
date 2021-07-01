@@ -17,14 +17,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import cm.itspj.java.movie.model.CommentRepository;
 import cm.itspj.java.movie.model.Impression;
-// import cm.itspj.java.movie.model.Impression;
 import cm.itspj.java.movie.model.ImpressionRepository;
 import cm.itspj.java.movie.model.Movie;
 import cm.itspj.java.movie.model.MovieRepository;
 import cm.itspj.java.movie.model.MovieUser;
 import cm.itspj.java.movie.model.MovieUserDetailsImpl;
 import cm.itspj.java.movie.model.MovieUserRepository;
-// import cm.itspj.java.movie.service.UserDetailServiceImpl;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -37,15 +35,16 @@ public class AdminController {
   private final MovieUserRepository uRep;
   private final CommentRepository cRep;
 
+  /**adminユーザーのトップページ */
   @GetMapping("/{id}/home")
   public String home(@PathVariable int id, Model model) {
-    // List<Impression> impList = iRep.findByUserId(id);
     model.addAttribute("implist", iRep.findByUserId(id));
     List<Movie> movieList = mRep.findAll();
     model.addAttribute("movielist", movieList);
     return "admin/home";
   }
 
+  /**自分の投稿の詳細表示 */
   @GetMapping("/{id}/show")
   public String show(Model model, @PathVariable int id, @AuthenticationPrincipal MovieUserDetailsImpl userDetails) {
     Impression impression = iRep.getById(id);
@@ -56,15 +55,18 @@ public class AdminController {
     return "admin/show";
   }
 
+
+  /**編集ページ */
   @GetMapping("/{userid}/{impid}/edit")
   public String edit(@PathVariable int impid,@PathVariable int userid ,Model model, @AuthenticationPrincipal MovieUserDetailsImpl userDetails) {
-    model.addAttribute("impression", iRep.findById(impid));
+    model.addAttribute("impress", iRep.findById(impid));
     model.addAttribute("user", uRep.findById(userid));
     model.addAttribute("userId", userDetails.getUserId());
     model.addAttribute("impId", impid);
     return "admin/edit";
   }
 
+  /**編集コマンド */
   @PatchMapping("/{userid}/{impid}/edit")
   public String update(@Validated @ModelAttribute Impression impression, BindingResult result, @PathVariable int impid, @PathVariable int userid){
     if(result.hasErrors()) {
@@ -75,6 +77,7 @@ public class AdminController {
     return "redirect:/admin/"+userid+"/home";
   }
   
+  /**新規投稿ページ */
   @GetMapping("/{userid}/new")
   public String newForm(@ModelAttribute Impression impression, @ModelAttribute Movie movie, @PathVariable int userid, Model model, @AuthenticationPrincipal MovieUserDetailsImpl userDetails) {
     model.addAttribute("movie", mRep.findById(userid));
@@ -83,6 +86,7 @@ public class AdminController {
     return "admin/new";
   }
 
+  /**新規投稿コマンド */
   @PostMapping("/{userid}/new")
   public String newImpress(@PathVariable int userid, @Validated @ModelAttribute Impression impression, BindingResult result, @ModelAttribute MovieUser user) {
     if (result.hasErrors()) {
@@ -92,13 +96,7 @@ public class AdminController {
     return "redirect:/admin/"+userid+"/home";
   }
 
-  
-  @GetMapping("/damy")
-  public String user(@AuthenticationPrincipal MovieUser movieUser, Model model) {
-    model.addAttribute("user", movieUser);
-    return "admin/damy";
-  }
-
+  /**閲覧者からのコメント削除コマンド */
   @DeleteMapping("/{impid}/{id}/show")
   public String destroy(@PathVariable int impid, @PathVariable int id, Model model) {
     cRep.deleteById(id);

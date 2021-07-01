@@ -1,0 +1,12 @@
+body.home{
+  background-color: crimson;
+  
+}
+
+a{
+  color: aquamarine;
+}
+
+a:hover {
+  font-size: large;
+}

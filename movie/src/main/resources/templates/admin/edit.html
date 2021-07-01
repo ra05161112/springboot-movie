@@ -10,12 +10,13 @@
   <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
   <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
   <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+  <link rel="stylesheet" href="admin.css">
 </head>
 
 <body>
-  <div class="container" th:object="${impression}">
+  <div class="container" th:object="${impress}">
     <form th:method="patch" th:action="@{/admin/{userid}/{impid}/edit(userid=${userId},impid=${impId})}">
-      <div>
+      <div hidden>
         <label for="id">ID</label>
         <input type="text" th:field="*{id}" disabled>
       </div>
@@ -48,7 +49,7 @@
         </select>
       </div>
       <div>
-        <div>
+        <div hidden>
           <label for="user">user</label>
           <select class="form-control" th:field="*{user}">
             <th:brock th:each="user : user">

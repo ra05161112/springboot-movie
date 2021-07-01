@@ -25,10 +25,11 @@ public class Comment {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   public int id;
 
-  /**閲覧者からのコメント*/
+  /**閲覧者からのコメントnotblank*/
   @NotBlank
   public String comments;
 
+  /**コメントした日時 notnull */
   @DateTimeFormat(iso = ISO.DATE)
   @NotNull
   public LocalDate date;

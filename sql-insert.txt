@@ -1,28 +1,82 @@
-insert into movie(title, director) values ('いとみち','横浜聡子'),('ガイアシンフォ
+insert into movie(title, director) values ('るろうに剣心最終章','大友啓史'),('いとみち','横浜聡子'),('ガイアシンフォ
 ニー','龍村仁'),('息子のままで、女子になる','村岡太樹'),('グラデーション','椎名
-零'),('ザ・ファブル','江口カン'),('ヒノマルソウル','飯塚健');
+零'),('ザ・ファブル','江口カン'),('ヒノマルソウル','飯塚健'),('キャラクタ－','永井聡'),('Mr.ノーバディ','イリヤ・ナイシュラー'),('クワイエット・プレイス　破られた沈黙','ジョン・クラシンスキー');
 
 
 insert into user(username,mastar,password) values('tomoki','false','111111'),('miura','false', '111111');
 
 
 
-insert into impression(evaluation, movie_id,date,release,user_id) values ('1','1','2021-06-21','true','1')
-,('3','2','2021-06-21','false','1'),('2','3','2021-06-21','false','1'),('2','4','2021-06-21','false','1')
-, ('3','6','2021-06-21','true','2'), ('1','3','2021-06-21','true','2'), ('2','5','2021-06-21','true','2');
+insert into impression(evaluation, movie_id,date,release,user_id) values ('5','1','2021-06-10','true','1')
+,('3','2','2021-06-11','false','1'),('2','3','2021-06-18','false','1'),('2','4','2021-06-10','false','1')
+, ('3','6','2021-06-27','true','2'), ('4','3','2021-06-15','true','2'), ('5','5','2021-06-29','true','2');
+
+insert into impression(evaluation, movie_id,date,release,user_id) values ('5','1','2021-06-17','false','1')
+,('1','3','2021-06-12','true','3'),('4','3','2021-06-19','true','3'),('2','4','2021-06-20','true','3')
+, ('5','6','2021-06-02','true','3'), ('3','6','2021-06-22','true','1'), ('4','2','2021-06-09','true','2'),('5','7','2021-06-08','true','1'),('3','8','2021-07-20','true','1'),('4','1','2021-06-14','true','1'),('1','10','2021-06-20','true','1'),('4','7','2021-06-20','true','3');
 
 
 
 insert into comment(impression_id,comments,date) values('1','それはない！','2021-06-22');
 
 update impression
-set impress='面白かった'
+set impress='古坂大魔王が出てなければいい映画だった'
+where id=2;
+update impression
+set impress='トランスジェンダーであることを抑圧しながら過ごした10代の楓の苦しみが雪崩を起こすはるな愛とのシーンには、劇場でも鼻をすする声がちらほら。'
+where id=4;
+update impression
+set impress='碑文谷で独り暮らしをする男子大学生の一夏のお話。'
+where id=7;
+update impression
+set impress='見るからに風采が上がらず、仕事場ではもちろん、家族からも軽んじられているダメ親父の権化みたいな主人公が、実はとんでもない切れ者だったという設定は、映画に意外性を求めるファンにはうってつけ。'
+where id=17;
+update impression
+set impress='「るろうに剣心」という作品は、主人公・緋村剣心が、“斬れない刀”である「逆刃刀」を使うなど、「不殺（ころさず）の誓い」をしているという非常に珍しい設定になっている点が最大の特徴であり魅力でもあります。'
 where id=1;
 update impression
-set impress='寝た'
+set impress='とにかくFukaseが良い。ナチュラルボーンサイコキラーっぽさがすごい。'
+where id=16;
+update impression
+set impress='疲れてたときに見てしまったのが災いして、何度も寝落ちしてしまった。'
+where id=6;
+update impression
+set impress='どうにも、1はとても面白かったけど、2は子供達の成長がテーマのような感じなのと、敵の正体や弱点がわかってるので逃げる、戦うの繰り返しが単調で眠くなってしまった。'
+where id=18;
+update impression
+set impress='山本美月の関西弁の下手さ（笑）'
+where id=7;
+update impression
+set impress='面白かった'
+where id=8;
+update impression
+set impress='面白かった'
+where id=9;
+update impression
+set impress='面白かった'
+where id=10;
+update impression
+set impress='面白かった'
+where id=11;
+update impression
+set impress='面白かった'
+where id=12;
+
+update impression
+set impress='原作見てないけど面白かった。'
+where id=13;
+
+
+update impression
+set impress='テストジャンパーの存在はなんとなく知っていましたが、25人もいて、そして、長野の2回目のジャンプの前に、あんな極限のドラマがあったなんて全く知らず、ただただ涙です。'
+where id=15;
+update impression
+set impress='人間が世界のためにできることはなんだろう。他の生き物 動植物 虫 微生物は皆知っている。知らないのは人間だけだ'
 where id=3;
 
-insert into comment(comments, date, impression_id) values ('詰まらなかった','2021-06-03', '1'),('面白かった','2021-06-03', '1');
+insert into comment(comments, date, impression_id) values ('詰まらなかった','2021-06-03', '15'),('面白かった','2021-06-03', '15'),('しみた。。。 津軽三味線の音に胸がザワつき… 感動の嵐がわきおこった.','2021-06-28','2');
 
 
-insert into comment(comments, date, impression_id) values ('詰まらなかった','2021-06-03', '6'),('面白かった','2021-06-03', '6'),('面白かった','2021-06-03', '6');
+insert into comment(comments, date, impression_id) values ('詰まらなかった','2021-06-03', '6'),('「楓ちゃん、戦いすぎよ。」でしびれた','2021-06-03', '4'),('象のエピソードに感動。','2021-06-03', '3');
+
+insert into comment(comments,date, impression_id) values ('見る目ないな','2021-06-28','17'),('センスを疑う','2021-05-06','16'),('あれは傑作だった','2021-07-21','14'),('1作目を超えることはないからな','2021-06-05','1'),('分かる。','2021-06-27','18'),('お前の目は節穴か？','2021-05-23','13'),('僕は寝ました。','2021-06-25','12'),('最終章見られてよかった。','2021-06-30','1'),('佐藤健がイケメンだから成り立つ映画','2021-06-27','1'),('くだらない映画だった','2021-06-16','11'),('見ごたえのある映画だった','2021-06-14','10'),('死ぬほどセンスなくて草','2021-06-19','9');

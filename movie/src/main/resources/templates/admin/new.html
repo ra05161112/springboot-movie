@@ -19,15 +19,16 @@
   
 
     <div class="form-group">
-
-      <label for="evaluation">評価 :</label>
+  
+      <label for="evaluation">評価 :(5段階で評価してね)</label>
       <input type="text" th:field="${impression.evaluation}">
       <span th:errors="*{evaluation}"></span>
-      <span>5段階で評価してね</span>
+      
     </div>
     <div class="form-group">
       <label for="impress">感想 :</label>
       <textarea rows="15" cols="60" th:field="*{impress}"></textarea>
+      <span>後でも書き込めるよ</span>
     </div>
 
     <div class="form-group">
@@ -48,7 +49,7 @@
         </th:block>
       </select>
     </div>
-<div>
+<div hidden>
   <label for="user">user</label>
   <select class="form-control" th:field="*{user}">
     <th:brock th:each="user : user">
@@ -61,6 +62,7 @@
 <div>
   <input type="submit" value="投稿">
 </div>
+<a th:href="@{/admin/{id}/home(id=${userid})}">戻る</a>
   </form>
 </body>
 

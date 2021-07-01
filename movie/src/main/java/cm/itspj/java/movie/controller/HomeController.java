@@ -4,10 +4,8 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-// import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-// import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,7 +18,6 @@ import cm.itspj.java.movie.model.MovieUserDetailsImpl;
 import cm.itspj.java.movie.model.MovieUserRepository;
 import cm.itspj.java.movie.model.Role;
 import lombok.RequiredArgsConstructor;
-// import javax.servlet.http.HttpServletRequest;
 
 @RequiredArgsConstructor
 @Controller
@@ -32,12 +29,13 @@ public class HomeController {
   private final MovieRepository mRep;
   private final MovieUserRepository uRep;
 
-
+  
   @GetMapping("/")
   public String logoutPage() {
     return "common/logout";
   }
 
+  /**ログイン成功 */
   @GetMapping("/top")
     public String index(@AuthenticationPrincipal MovieUserDetailsImpl userDetails, Model model) {
       System.out.println("user_id " + userDetails.getUserId());
@@ -45,11 +43,13 @@ public class HomeController {
     return "common/index";
   }
 
+  /**ログインページ */
   @GetMapping("/login")
   public String login() {
     return "common/login";
   }
 
+  /**{ID}の映画についての投稿一覧 */
   @GetMapping("/movie/{id}/list")
   public String movie(@PathVariable int id, Model model) {
     model.addAttribute("movie", mRep.findById(id));
@@ -57,11 +57,13 @@ public class HomeController {
     return "common/list";
   }
 
+  /**新規ユーザー登録ページ */
   @GetMapping("/new/admin")
   public String newUser(@ModelAttribute("user") MovieUser user) {
     return "common/new";
   }
 
+  /**ユーザー登録コマンド */
   @PostMapping("/new/admin")
   public String createUser(@Validated @ModelAttribute("user") MovieUser user, BindingResult result) {
     if (result.hasErrors()) {

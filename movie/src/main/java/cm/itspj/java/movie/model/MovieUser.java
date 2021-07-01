@@ -32,7 +32,7 @@ public class MovieUser {
   @Size(min = 6, max = 255)
   public String password;
 
-  /**権限　RELO_ADMIN  RELO_USER */
+  /**権限　RELO_ADMIN  RELO_USER なくてもよくない？*/
   public String role;
 
   /**管理者フラグ */

@@ -9,17 +9,14 @@
   <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
   <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
   <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-  <link rel="stylesheet" href="movie.css">
+  <link rel="stylesheet" type="text/css" href="movie.css">
 </head>
 <body>
   
 <div class="content">
  <div class="bg">
-  <h1>Welcom</h1>
+  <h1>Welcom Back</h1>
   <h1 sec:authentication="principal.username"></h1>  
- 
-  
-
   <br>
   <br>
   <a th:href="@{/viewer/home}">一般公開ページへ</a><br>
