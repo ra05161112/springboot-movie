@@ -27,3 +27,4 @@ public class MovieUserDetailsImpl extends User {
     return user.getId();
   }
 }
+

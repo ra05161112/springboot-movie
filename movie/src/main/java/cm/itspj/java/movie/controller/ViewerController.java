@@ -44,7 +44,7 @@ public class ViewerController {
     Impression impression = iRep.getById(id);
     model.addAttribute("impression", impression);
    model.addAttribute("movie", iRep.findMovieById(id));
-   model.addAttribute("comment", iRep.findCommentById(id));
+   model.addAttribute("comment", iRep.findCommentsById(id));
     return "viewer/show";
   }
 
@@ -56,12 +56,12 @@ public class ViewerController {
   }
 
   @PostMapping("/{impid}/comment")
-  public String commentation(@ModelAttribute Comment comment, @ModelAttribute Impression impression, BindingResult result) {
+  public String commentation(@Validated @ModelAttribute Comment comments, BindingResult result, @PathVariable int impid) {
     if(result.hasErrors()) {
-      return "viewer/home";
+      return "redirect:/viewer/"+impid+"/show";
     }
-    cRep.save(comment);
-    return "viewer/home";
+    cRep.save(comments);
+    return "redirect:/viewer/home";
   }
 
  

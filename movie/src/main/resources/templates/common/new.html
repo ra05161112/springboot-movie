@@ -19,10 +19,12 @@
     <div>
       <label for="username">ユーザー名：</label>
       <input type="text" th:field="*{username}">
+      <span th:errors=*{username}></span>
     </div>
     <div>
       <label for="username">パスワード：</label>
       <input type="password" th:field="*{password}"> 
+      <span th:errors=*{password}></span>
     </div>
     <div>
       <label for="mastar">管理者：</label>

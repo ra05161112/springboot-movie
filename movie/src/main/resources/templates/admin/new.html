@@ -19,16 +19,21 @@
   
 
     <div class="form-group">
+
       <label for="evaluation">評価 :</label>
       <input type="text" th:field="${impression.evaluation}">
+      <span th:errors="*{evaluation}"></span>
+      <span>5段階で評価してね</span>
     </div>
     <div class="form-group">
       <label for="impress">感想 :</label>
-      <input type="text" th:field="*{impress}">
+      <textarea rows="15" cols="60" th:field="*{impress}"></textarea>
     </div>
+
     <div class="form-group">
       <label for="date">見た日 :</label>
       <input type="date" th:field="*{date}">
+      <span th:errors="*{date}"></span>
     </div>
     <div class="form-group">
       <label for="release">公開 :</label>

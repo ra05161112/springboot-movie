@@ -13,7 +13,7 @@ insert into impression(evaluation, movie_id,date,release,user_id) values ('1','1
 
 
 
-insert into comment(impression_id,comment,date) values('1','それはない！','2021-06-22');
+insert into comment(impression_id,comments,date) values('1','それはない！','2021-06-22');
 
 update impression
 set impress='面白かった'
@@ -22,7 +22,7 @@ update impression
 set impress='寝た'
 where id=3;
 
-insert into comment(comment, date, impression_id) values ('詰まらなかった','2021-06-03', '1'),('面白かった','2021-06-03', '1');
+insert into comment(comments, date, impression_id) values ('詰まらなかった','2021-06-03', '1'),('面白かった','2021-06-03', '1');
 
 
-insert into comment(comment, date, impression_id) values ('詰まらなかった','2021-06-03', '6'),('面白かった','2021-06-03', '6'),('面白かった','2021-06-03', '6');
+insert into comment(comments, date, impression_id) values ('詰まらなかった','2021-06-03', '6'),('面白かった','2021-06-03', '6'),('面白かった','2021-06-03', '6');

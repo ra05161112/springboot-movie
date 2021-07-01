@@ -47,11 +47,12 @@ public class AdminController {
   }
 
   @GetMapping("/{id}/show")
-  public String show(Model model, @PathVariable int id) {
+  public String show(Model model, @PathVariable int id, @AuthenticationPrincipal MovieUserDetailsImpl userDetails) {
     Impression impression = iRep.getById(id);
     model.addAttribute("impression", impression);
    model.addAttribute("movie", iRep.findMovieById(id));
    model.addAttribute("comment", cRep.findByImpressionId(id));
+   model.addAttribute("userId", userDetails.getUserId());
     return "admin/show";
   }
 
@@ -65,9 +66,9 @@ public class AdminController {
   }
 
   @PatchMapping("/{userid}/{impid}/edit")
-  public String update(@ModelAttribute Impression impression, BindingResult result, @PathVariable int impid, @PathVariable int userid){
+  public String update(@Validated @ModelAttribute Impression impression, BindingResult result, @PathVariable int impid, @PathVariable int userid){
     if(result.hasErrors()) {
-      return "redirect:/admin/"+userid+"/show";
+      return "adamin/edit";
     }
     impression.setId(impid);
     iRep.save(impression);

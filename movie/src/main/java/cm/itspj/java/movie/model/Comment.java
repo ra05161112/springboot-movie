@@ -27,7 +27,7 @@ public class Comment {
 
   /**閲覧者からのコメント*/
   @NotBlank
-  public String comment;
+  public String comments;
 
   @DateTimeFormat(iso = ISO.DATE)
   @NotNull

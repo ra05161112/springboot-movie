@@ -12,5 +12,5 @@ public interface ImpressionRepository extends JpaRepository<Impression, Integer>
   Collection<Impression> findByMovieId(int id);
   // Collection<Impression> 
   Collection<MovieIdOnly> findMovieById(int id);
-  Collection<CommentIdOnly> findCommentById(int id);
+  Collection<CommentIdOnly> findCommentsById(int id);
 }

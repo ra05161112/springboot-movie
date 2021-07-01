@@ -9,25 +9,24 @@
   <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
   <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
   <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+  <link rel="stylesheet" href="movie.css">
 </head>
 <body>
   
-
- <div>
-  <span>Hello</span>
-  <span sec:authentication="principal.username"></span>   
- </div> 
+<div class="content">
+ <div class="bg">
+  <h1>Welcom</h1>
+  <h1 sec:authentication="principal.username"></h1>  
+ 
+  
 
   <br>
-  <!-- <div sec:authorize="hasRole('ADMIN')">
-    you are admin!
-  </div>
-  <div th:unless="${#authorization.expression('hasRole(''ADMIN'')')}">
-    you are not admin...
-  </div> -->
   <br>
   <a th:href="@{/viewer/home}">一般公開ページへ</a><br>
   <a th:href="@{/admin/{id}/home(id=${userId})}">Your Page</a>
   <div sec:authorize="isAuthenticated()">
   </div>
+</div>
+</div>
+</body>
 </html>

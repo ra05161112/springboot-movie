@@ -41,3 +41,4 @@ public class MovieUser {
   @OneToMany
   public List<Impression> impressions;
 }
+

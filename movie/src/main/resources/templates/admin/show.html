@@ -33,7 +33,7 @@
       <tbody>
         <tr th:each="comment : ${comment}" th:object="${comment}">
           <td th:text="*{id}"></td>
-          <td th:text="*{comment}"></td>
+          <td th:text="*{comments}"></td>
           <td colspan=1>
             <form th:method="delete" th:action="@{/admin/{impid}/{id}/show(impid=*{impression.id},id=*{id})}">
               <button type="submit" value="削除" class="btn btn-danger" onclick="return confirm('消していいの？')">削除</button>
@@ -42,12 +42,12 @@
         </tr>
       </tbody>
     </table>
-    
+    <a th:href="@{/admin/{id}/home(id=${userId})}">戻る</a>
     <h1 th:unless="${impression}" th:text="データがありません"></h1>
     <br>
   </ul>
   <h1 th:unless="${impression}" th:text="データがありません"></h1>
-  <a th:href="@{/admin/{userid}/{impid}/edit(impid=*{id},userid=${id})}">編集</a>
+  <a th:href="@{/admin/{userid}/{impid}/edit(impid=*{id},userid=${userId})}">編集</a>
   </div>
 
 </html>

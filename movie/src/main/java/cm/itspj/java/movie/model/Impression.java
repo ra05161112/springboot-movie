@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Max;
 // import javax.persistence.OneToMany;
 // import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -31,6 +32,7 @@ public class Impression {
 
   /**評価（3-5段階）*/
   @NotNull
+  @Max(5)
   public int evaluation;
 
   /*adminuserの感想null ok*/
@@ -53,5 +55,5 @@ public class Impression {
   public MovieUser user;
 
   @OneToMany
-  public List<Comment> comment;
+  public List<Comment> comments;
 }
