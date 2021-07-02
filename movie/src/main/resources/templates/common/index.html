@@ -15,12 +15,14 @@
   
 <div class="content">
  <div class="bg">
+   <div class="welcom">
   <h1>Welcom Back</h1>
-  <h1 sec:authentication="principal.username"></h1>  
-  <br>
-  <br>
-  <a th:href="@{/viewer/home}">一般公開ページへ</a><br>
-  <a th:href="@{/admin/{id}/home(id=${userId})}">Your Page</a>
+  <h1 sec:authentication="principal.username"></h1> 
+   </div> 
+<div class="index">
+  <a th:href="@{/admin/{id}/home(id=${userId})}" type="button" class="btn btn-outline-light btn-lg">Your Page</a>
+  <a th:href="@{/viewer/home}" type="button" class="btn btn-outline-light btn-lg">Public Page</a><br>
+</div>
   <div sec:authorize="isAuthenticated()">
   </div>
 </div>

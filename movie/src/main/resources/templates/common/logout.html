@@ -9,12 +9,16 @@
   <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
   <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
   <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+  <link rel="stylesheet" href="/movie.css">
 </head>
-<body>
+<body class="logout">
 
-<a th:href="@{/login}">Login</a> <br>
-<a th:href="@{/viewer/home}">一般公開ページ</a>   
-
+  <div class="logout">
+    
+<a th:href="@{/login}" type="button" class="btn btn-outline-dark btn-lg">Login</a> <br>
+<div class="logout2">
+  <a th:href="@{/viewer/home}" type="button" class="btn btn-outline-dark btn-lg">Public Page</a>   
+  </div></div>
   
 </body>
 </html>

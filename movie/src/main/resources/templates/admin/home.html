@@ -10,14 +10,20 @@
   <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
   <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
   <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-  <link rel="stylesheet" type="text/css" href="/admin/admin.css">
+  <link rel="stylesheet" type="text/css" th:href="@{/admin/admin.css}">
 </head>
 
-<body class="bg">
+<body class="home">
   
   <div class="container">
 
     <h2 class="pink">Your Page!</h2>
+    <div class="migi">
+    <a th:href="@{/}" type="button" class="btn btn-outline-dark">Logout</a>
+    <a th:href="@{/viewer/home}" type="button" class="btn btn-outline-dark">Public Page</a>
+    </div>
+
+
     <table class="table">
       <h5>貴方が見た映画</h5>
       <thead>
@@ -29,37 +35,57 @@
         <tr th:each="impression : ${implist}" th:object="${impression}">
           <td th:text="*{id}"></td>
           <td>
-            <a class="page" th:href="@{/admin/{id}/show(id=*{id})}" th:text="*{movie.title}"></a>
+            <a class="page" th:href="@{/admin/{id}/show(id=*{id})}"  th:text="*{movie.title}" ></a>
             <td>
-              <a th:href="@{/admin/{userid}/{impid}/edit(impid=${impression.id},userid=*{user.id})}" class="btn btn-outline-primary">編集</a>
+              <a th:href="@{/admin/{userid}/{impid}/edit(impid=${impression.id},userid=*{user.id})}"  type="button" class="btn btn-outline-light">編集</a>
             </td>
           </td>
         </tr>
         <td>
-          <a th:href="@{/admin/{userid}/new(userid=*{id})}">新規作成</a>
+          <a th:href="@{/admin/{userid}/new(userid=*{id})}" type="button" class="btn btn-outline-light">新規作成</a>
         </td>
       </tbody>
     </table>
     <table class="table">
       <h5>公開中の映画</h5>
       <thead>
-        <th>#</th>
-        <th>映画タイトル</th>
-        <th>監督</th>
+        <th colspan=1>#</th>
+        <th colspan=2>映画タイトル</th>
+        <th colspan=2>監督</th>
+        <th colspan=4></th>
+        <th colspan=2></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
       </thead>
       <tbody>
         <tr th:each="movie : ${movielist}" th:object="${movie}">
-          <td th:text="*{id}"></td>
-          <td>
-            <a th:href="@{/movie/{id}/list(id=*{id})}" th:text="*{title}"></a>
+          <td colspan=1 th:text="*{id}"></td>
+          <td colspan=2>
+            <a class="page" th:href="@{/movie/{id}/list(id=*{id})}" th:text="*{title}"></a>
           </td>
-          <td th:text="*{director}"></td>
+          <td colspan=2 th:text="*{director}"></td>
+          <td colspan=4></td>
+          <td colspan=2></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
       </tbody>
     </table>
   </div>
- <a th:href="@{/}">ログアウト</a>
- <br>
- <a th:href="@{/viewer/home}">一般公開ページ</a>
+ 
 </body>
 </html>

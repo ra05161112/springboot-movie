@@ -10,10 +10,12 @@
   <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
   <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
   <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+  <link rel="stylesheet" href="/admin/hauru.css">
+
 
 </head>
 
-<body>
+<body class="hauru">
   <div class="container">
 
   <ul th:if="${impression}" th:object="${impression}">
@@ -23,10 +25,26 @@
     <li>評価 : [[*{evaluation}]]</li>
     <li>感想 : [[*{impress}]]</li>
   </ul>
+  <table class="table">
+    <h4>みんなのコメント</h4>
+    <thead>
+      <th>コメント</th>
+      <th>Date</th>
+    </thead>
+    <tbody>
+      <tr th:each="comment : ${comment}" th:object="${comment}">
+        <td th:text="${comment.comments}"></td>
+        <td th:text="*{date}"></td>
+      </tr>
+    </tbody>
+  </table>
 
   <h1 th:unless="${impression}" th:text="データがありません"></h1>
-  <a th:href="@{/viewer/{impid}/comment(impid=*{id})}">コメントをする</a><br>
-  <a th:href="@{/viewer/home}">top page</a>
+  <a type="button" class="btn btn-outline-light" th:href="@{/viewer/{impid}/comment(impid=*{id})}">コメントをする</a><br>
+  
+  <br>
+</div>
+  <a type="button" class="btn btn-outline-light" th:href="@{/viewer/home}">top page</a>
   </div>
-
+</body>
 </html>

@@ -10,33 +10,36 @@
   <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
   <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
   <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+  <link rel="stylesheet" href="/admin/admin.css">
+
 
 </head>
 
-<body>
+<body class="kimisui">
   <div class="container">
-    <h3>たいとる</h3>
+
 
     <table class="table">
-      <h4>みんなが見た映画</h4>
+      <h4 class="black">みんなが見た映画</h4>
       <thead>
         <th>#</th>
         <th>映画タイトル</th>
-        <th></th>
       </thead>
       <tbody>
         <tr th:each="impression : ${implist}" th:object="${impression}" th:if="${impression.release eq true}">
           <td th:text="*{id}"></td>
           <td>
-            <a th:href="@{/viewer/{id}/show(id=*{id})}" th:text="*{movie.title}"></a>
+            <a class="page" th:href="@{/viewer/{id}/show(id=*{id})}" th:text="*{movie.title}"></a>
           </td>
         </tr>
-        <a th:href="@{/viewer/all/date}">投稿日順</a><br>
-        <a th:href="@{/viewer/all/movie}">タイトル順</a><br>
-        <a th:href="@{/viewer/all/evalu}">評価の高い順</a><br>
+        <div class="migikuro">
+        <a  type="button" class="btn btn-outline-light" th:href="@{/viewer/all/date}">投稿日順</a>
+        <a type="button" class="btn btn-outline-light" th:href="@{/viewer/all/movie}">タイトル順</a>
+        <a type="button" class="btn btn-outline-light" th:href="@{/viewer/all/evalu}">評価の高い順</a><br>
+        </div>
       </tbody>
     </table>
-   <a th:href="@{/viewer/home}">戻る</a>
+   <a  type="button" class="btn btn-dark" th:href="@{/viewer/home}">戻る</a>
   </div>
  
 </body>

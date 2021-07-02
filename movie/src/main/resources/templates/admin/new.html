@@ -14,7 +14,7 @@
 </head>
 
 <body class="bg">
-  <h2>新規投稿</h2>
+  
 
   <form th:action="@{/admin/{userid}/new(userid=${userId})}" th:object="${impression}"  th:method="post" novalidate>
   
@@ -28,7 +28,7 @@
     </div>
     <div class="form-group">
       <label for="impress">感想 :</label>
-      <textarea rows="15" cols="60" th:field="*{impress}"></textarea>
+      <textarea rows="7" cols="60" th:field="*{impress}"></textarea>
       <span>後でも書き込めるよ</span>
     </div>
 
@@ -41,11 +41,11 @@
       <label for="release">公開 :</label>
       <input type="checkbox" th:field="*{release}">
     </div>
-    <div>
+    <div class="choice">
       <label for="movie">映画タイトル：</label>
       <select class="form-control" th:field="*{movie}">
         <th:block th:each="movie : ${@movieRepository.findAll()}">
-          <option th:value="${movie.id}" th:text="${movie.title}">
+          <option th:value="${movie.id}" th:text="${movie.title}" >
           </option>
         </th:block>
       </select>
@@ -60,10 +60,11 @@
     </th:brock>
   </select>
 </div>
-<div>
-  <input type="submit" value="投稿">
+<div class="botan">
+  <input class="btn btn-outline-light"  type="submit"  value="投稿" >
+  <a th:href="@{/admin/{id}/home(id=${userid})}" type="button" class="btn btn-outline-light" >戻る</a>
+
 </div>
-<a th:href="@{/admin/{id}/home(id=${userid})}">戻る</a>
   </form>
 </body>
 

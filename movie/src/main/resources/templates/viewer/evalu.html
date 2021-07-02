@@ -10,19 +10,20 @@
   <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
   <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
   <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+  <link rel="stylesheet" href="/admin/admin.css">
+
 
 </head>
 
-<body>
+<body  class="kimisui">
   <div class="container">
-    <h3>たいとる</h3>
 
     <table class="table">
-      <h4>みんなが見た映画評価の高い順</h4>
+      <h4>みんなが見た映画 [評価の高い順]</h4>
       <thead>
         <th>#</th>
         <th>映画タイトル</th>
-        <th></th>
+
       </thead>
       <tbody>
         <tr th:each="impression : ${implist}" th:object="${impression}" th:if="${impression.release eq true}">
@@ -31,9 +32,12 @@
             <a th:href="@{/viewer/{id}/show(id=*{id})}" th:text="*{movie.title}"></a>
           </td>
         </tr>
+        <div class="migikuro">
+          <a  type="button" class="btn btn-outline-light"  th:href="@{/viewer/all}">戻る</a>
+          </div>
       </tbody>
     </table>
-   <a th:href="@{/viewer/all}">戻る</a>
+  
   </div>
  
 </body>

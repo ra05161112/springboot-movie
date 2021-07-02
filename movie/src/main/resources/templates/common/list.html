@@ -10,9 +10,10 @@
   <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
   <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
   <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+  <link rel="stylesheet" href="/movie.css">
 </head>
 
-<body>
+<body class="soranin">
   <div class="container" >
       <table class="table">
       <thead>
@@ -25,13 +26,14 @@
         <tr th:each="impression : ${impression}" th:object="${impression}" th:if="${impression.release eq true}">
           <td th:text="*{id}"></td>
           <td>
-            <a th:href="@{/viewer/{id}/show(id=*{id})}" th:text=*{movie.title}></a>
+            <a class="page" th:href="@{/viewer/{id}/show(id=*{id})}" th:text=*{movie.title}></a>
           </td>
           <td th:text="*{evaluation}"></td>
           <td th:text="*{date}"></td>
         </tr>
       </tbody>
     </table>
+    <a type="button" class="btn btn-outline-light"  th:href="@{/viewer/home}">Public Page</a>
 
 </body>
 

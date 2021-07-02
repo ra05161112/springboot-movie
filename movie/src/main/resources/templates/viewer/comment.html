@@ -10,19 +10,21 @@
   <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
   <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
   <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+  <link rel="stylesheet" href="/admin/hauru.css">
+
 
 </head>
 
-<body>
+<body class="hauru">
   <form th:action="@{/viewer/{impid}/comment(impid=${impId})}" th:object="${comment}"  th:method="post" novalidate>
 
 
       <div class="form-group">
           <label for="comments">comments :</label>
-          <textarea rows="10" cols="60"  th:field="*{comments}"></textarea>
+          <textarea rows="2" cols="50"  th:field="*{comments}"></textarea>
         </div>
 
-          <label for="date">date</label>
+          <label for="date">date :</label>
           <input type="date" th:field="*{date}">
           <span th:errors="*{date}"></span>
         </div>
@@ -34,9 +36,9 @@
           </select>
         </div>
         <br>
-    <input type="submit" value="更新">
-    <input type="reset"><br>
-    <a th:href="@{/viewer/{impid}/show(impid=${impId})}">戻る</a>
+    <input type="submit" value="更新"  class="btn btn-outline-light">
+    <input type="reset" class="btn btn-outline-light">
+    <a  type="button" class="btn btn-outline-light"  th:href="@{/viewer/{impid}/show(impid=${impId})}">戻る</a>
   </body>
 
   </html>

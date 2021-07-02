@@ -45,7 +45,7 @@ public class HomeController {
 
   /**ログインページ */
   @GetMapping("/login")
-  public String login() {
+  public String loginpage() {
     return "common/login";
   }
 
@@ -75,7 +75,7 @@ public class HomeController {
     user.setRole(user.isMastar() ? Role.ROLE_ADMIN.name() : Role.ROLE_ADMIN.name());
 
     uRep.save(user);
-    return "redirect:/login?new/admin";
+    return "redirect:/login";
   }
 
 

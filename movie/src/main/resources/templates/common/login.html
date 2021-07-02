@@ -5,30 +5,39 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
   <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
   <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
   <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+  <link rel="stylesheet" type="text/css" href="/aaaa.css">
   <title>ログイン</title>
 </head>
 
 <body>
-  <h2>ログイン</h2>
-  <div th:if="${param.error}">
-    <small>ユーザ名またはパスワードが正しくありません</small>
+  <div class="container">
+    <h3>ログイン</h3>
+
+    <div th:if="${param.error}">
+      <small>ユーザ名またはパスワードが正しくありません</small>
+    </div>
+    <form th:action="@{/login}" th:method="post" novalidate>
+      <div>
+        <label for="username">ユーザー名：</label>
+        <input type="text" name="username">
+      </div>
+      <div>
+        <label for="username">パスワード：</label>
+        <input type="password" name="password">
+      </div>
+      <div class="botan">
+        <button class="btn btn-outline-dark">ログイン</button>
+      </div>
+
+    </form>
+    <div class="margin">
+    <a th:href="@{/new/admin}" type="button" class="btn btn-outline-dark">新規登録へ</a>
+    </div>
   </div>
-  <form th:action="@{/login}" th:method="post" novalidate>
-    <div>
-      <label for="username">ユーザー名：</label>
-      <input type="text" name="username">
-    </div>
-    <div>
-      <label for="username">パスワード：</label>
-      <input type="password" name="password">
-    </div>
-    <button>ログイン</button>
-  </form>
-  <a th:href="@{/new/admin}">新規登録へ</a>
 </body>
 
 </html>

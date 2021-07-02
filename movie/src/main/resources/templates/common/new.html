@@ -9,14 +9,17 @@
   <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
   <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
   <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+  <link rel="stylesheet" type="text/css" href="/aaaa/aaaa.css">
   <title>登録</title>
 </head>
 
-<body>
-  <h2>ユーザー登録</h2>
+<body >
+  <div class="leftmargin">
+  <h3>ユーザー登録</h3>
 
   <form th:action="@{/new/admin}" th:method="post" th:object="${user}" novalidate>
-    <div>
+    
+      <div>
       <label for="username">ユーザー名：</label>
       <input type="text" th:field="*{username}">
       <span th:errors=*{username}></span>
@@ -26,11 +29,17 @@
       <input type="password" th:field="*{password}"> 
       <span th:errors=*{password}></span>
     </div>
-    <div>
+    <div class="check" hidden>
       <label for="mastar">管理者：</label>
       <input type="checkbox" th:field="*{mastar}">
     </div>
-    <button>登録</button>
+    <div class="botan">
+    <button class="btn btn-outline-dark">登録</button>
+    </div>
+    <div class="margin">
+      <a  type="button" class="btn btn-outline-dark" th:href="@{/login}">もどる</a>
+    </div>
+    </div>
   </form>
 </body>
 

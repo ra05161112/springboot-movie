@@ -68,7 +68,7 @@ public class ViewerController {
     Impression impression = iRep.getById(id);
     model.addAttribute("impression", impression);
    model.addAttribute("movie", iRep.findMovieById(id));
-   model.addAttribute("comment", iRep.findCommentsById(id));
+   model.addAttribute("comment", cRep.findByImpressionId(id));
     return "viewer/show";
   }
 
@@ -81,13 +81,13 @@ public class ViewerController {
 
   /**コメント投稿コマンド */
   @PostMapping("/{impid}/comment")
-  public String commentation(@Validated @ModelAttribute Comment comments, BindingResult result, @PathVariable int impid, Model model) {
+  public String commentation(@Validated @ModelAttribute Comment comment, BindingResult result, @PathVariable int impid, Model model) {
     if(result.hasErrors()) {
-      model.addAttribute("impid", impid);
+      model.addAttribute("impId", impid);
       return "viewer/comment";
     }
-    cRep.save(comments);
-    return "redirect:/viewer/home";
+    cRep.save(comment);
+    return "redirect:/viewer/{impid}/show";
   }
 
  

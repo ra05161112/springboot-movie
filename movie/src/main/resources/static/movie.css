@@ -1,9 +1,33 @@
 
 
 h1{
-  color: limegreen;
+  
+  color: honeydew;
   font-weight: bold;
   text-align: center;
+}
+
+div.welcom {
+  margin-top: 25%;
+}
+
+h3{
+  margin-left: 40px;
+  margin-top: 25px;
+
+}
+
+div.leftmargin{
+  margin-left: 5%;
+  margin-top: 5%;
+}
+
+div.index {
+  margin-left: 40%;
+}
+
+.check, .botan{
+  margin-top:5px ;
 }
 
 .bg {
@@ -13,19 +37,61 @@ h1{
   top: 0;
   left: 0;
 
-  background:url(rurokenn.jpg);
+  color: aliceblue;
+  font-weight: bold;
+
+  background:url(sho3.jpg);
   background-size: cover;
   opacity: 1;
 }
 
-a {
-font-size: 20px;
-text-align: center;
+body.logout{
+  color: aliceblue;
+  font-weight: bold;
+}
+div.logout{
+  text-align: center;
+  margin: 35px;
+  margin-top: 23%;
+}
+
+div.logout2{
+  margin-top: 3px;
+
+}
+
+body.soranin{
+  background-image: url(mononoke.jpg);
+  background-size: cover;
+ margin-top: 5%;
+ margin-left: 10%;
+ color: aliceblue;
+}
+
+table{
+  background-color: rgba(0, 0, 0, 0.541);
+  color: antiquewhite;
+  font-weight: bolder;
+  border-collapse:  collapse;
+  border: solid 1px;
+  text-align: center;
+ font-size: medium;
+ font-weight: bold;
+ margin-top: 15%;
+}
+
+th, td {
+  color: azure;
+}
+a{
+  color: aliceblue;
+}
+  a.page{
+  text-decoration: underline;
 
 }
 
 a:hover{
-  font-size: 30px;
-  color: #000;
+  color: rgba(255, 255, 255, 0.596);
+  
 }
-

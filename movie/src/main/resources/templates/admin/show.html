@@ -16,7 +16,7 @@
 
 </head>
 
-<body class="bg">
+<body class="show">
   <div class="container">
     <ul th:if="${impression}" th:object="${impression}">
       <li>タイトル : [[*{movie.title}]]</li>
@@ -38,18 +38,18 @@
           <td th:text="*{date}"></td>
           <td colspan=1>
             <form th:method="delete" th:action="@{/admin/{impid}/{id}/show(impid=*{impression.id},id=*{id})}">
-              <button type="submit" value="削除" class="btn btn-danger" onclick="return confirm('消していいの？')">削除</button>
+              <button type="submit" value="削除" class="btn btn-outline-danger" onclick="return confirm('消していいの？')">削除</button>
             </form>
           </td>
         </tr>
       </tbody>
     </table>
-    <a th:href="@{/admin/{id}/home(id=${userId})}">戻る</a>
+    <a th:href="@{/admin/{id}/home(id=${userId})}" type="button" class="btn btn-outline-light">戻る</a>
     <h1 th:unless="${impression}" th:text="データがありません"></h1>
     <br>
   </ul>
   <h1 th:unless="${impression}" th:text="データがありません"></h1>
-  <a th:href="@{/admin/{userid}/{impid}/edit(impid=*{id},userid=${userId})}">編集</a>
+  <a th:href="@{/admin/{userid}/{impid}/edit(impid=*{id},userid=${userId})}" type="button" class="btn btn-outline-light">編集</a>
   </div>
-
+</body>
 </html>
