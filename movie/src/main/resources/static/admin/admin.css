@@ -1,0 +1,35 @@
+body.bg{
+  background-image: url(せかねこ.jpg);
+ 
+}
+
+h2,h5{
+  font-weight: bold;
+
+  color: black ;
+ 
+  text-align: center;
+}
+
+a {
+  font-size: 20px;
+  text-align: center;
+  color: rgb(226, 74, 74);
+  }
+  
+  .page:hover{
+    font-size: 21px;
+    color: #000;
+  }
+
+  /* table{
+    background-color: rgb(156, 250, 176);
+  }
+
+  tbody tr:nth-child(odd) {
+    background-color:  rgb(68, 253, 108);
+  }
+  tbody tr:nth-child(even) {
+    background-color:  rgb(8, 245, 79);
+  }
+   */

@@ -74,17 +74,17 @@ public class ViewerController {
 
   /**コメント投稿ページ */
   @GetMapping("/{impid}/comment")
-  public String com(@ModelAttribute Impression impression, @ModelAttribute Comment comment , Model model, @PathVariable int impid) {
-  model.addAttribute("impression", iRep.findById(impid));
+  public String com(@ModelAttribute Comment comment , Model model, @PathVariable int impid) {
   model.addAttribute("impId", impid);
     return "viewer/comment";
   }
 
   /**コメント投稿コマンド */
   @PostMapping("/{impid}/comment")
-  public String commentation(@Validated @ModelAttribute Comment comments, BindingResult result, @PathVariable int impid) {
+  public String commentation(@Validated @ModelAttribute Comment comments, BindingResult result, @PathVariable int impid, Model model) {
     if(result.hasErrors()) {
-      return "redirect:/viewer/"+impid+"/show";
+      model.addAttribute("impid", impid);
+      return "viewer/comment";
     }
     cRep.save(comments);
     return "redirect:/viewer/home";

@@ -10,16 +10,16 @@
   <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
   <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
   <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-  <link rel="stylesheet" type="text/css" href="admin.css">
+  <link rel="stylesheet" type="text/css" href="/admin/admin.css">
 </head>
 
-<body>
+<body class="bg">
   
   <div class="container">
 
-    <h3 class="pink">Your Page!</h3>
+    <h2 class="pink">Your Page!</h2>
     <table class="table">
-      <h4>貴方が見た映画</h4>
+      <h5>貴方が見た映画</h5>
       <thead>
         <th>#</th>
         <th>映画タイトル</th>
@@ -29,7 +29,7 @@
         <tr th:each="impression : ${implist}" th:object="${impression}">
           <td th:text="*{id}"></td>
           <td>
-            <a th:href="@{/admin/{id}/show(id=*{id})}" th:text="*{movie.title}"></a>
+            <a class="page" th:href="@{/admin/{id}/show(id=*{id})}" th:text="*{movie.title}"></a>
             <td>
               <a th:href="@{/admin/{userid}/{impid}/edit(impid=${impression.id},userid=*{user.id})}" class="btn btn-outline-primary">編集</a>
             </td>
@@ -41,11 +41,11 @@
       </tbody>
     </table>
     <table class="table">
-      <h4>公開中の映画</h4>
+      <h5>公開中の映画</h5>
       <thead>
         <th>#</th>
         <th>映画タイトル</th>
-        <th></th>
+        <th>監督</th>
       </thead>
       <tbody>
         <tr th:each="movie : ${movielist}" th:object="${movie}">
@@ -53,6 +53,7 @@
           <td>
             <a th:href="@{/movie/{id}/list(id=*{id})}" th:text="*{title}"></a>
           </td>
+          <td th:text="*{director}"></td>
         </tr>
       </tbody>
     </table>

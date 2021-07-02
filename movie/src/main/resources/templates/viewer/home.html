@@ -39,7 +39,7 @@
       <thead>
         <th>#</th>
         <th>映画タイトル</th>
-        <th></th>
+        <th>監督</th>
       </thead>
       <tbody>
         <tr th:each="movie : ${movielist}" th:object="${movie}">
@@ -47,6 +47,7 @@
           <td>
             <a th:href="@{/movie/{id}/list(id=*{id})}" th:text="*{title}"></a>
           </td>
+          <td th:text=*{director}></td>
         </tr>
       </tbody>
     </table>
