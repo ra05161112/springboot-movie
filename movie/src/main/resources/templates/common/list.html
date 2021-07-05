@@ -10,12 +10,11 @@
   <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
   <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
   <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-  <link  th:href="@{/css/movie.css}" rel="stylesheet">
+  <link th:href="@{/css/movie.css}" rel="stylesheet">
 </head>
-
 <body class="soranin">
-  <div class="container" >
-      <table class="table">
+  <div class="container">
+    <table class="table">
       <thead>
         <th>#</th>
         <th>Title</th>
@@ -32,11 +31,9 @@
           <td th:text="*{date}"></td>
         </tr>
         <div class="migikuro">
-        <a type="button" class="btn btn-outline-light"  th:href="@{/viewer/home}">Public Page</a>
+          <a type="button" class="btn btn-outline-light" th:href="@{/viewer/home}">Public Page</a>
         </div>
       </tbody>
     </table>
-
 </body>
-
 </html>

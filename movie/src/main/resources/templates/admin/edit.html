@@ -10,62 +10,60 @@
   <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
   <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
   <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-  <link  th:href="@{/css/admin.css}" rel="stylesheet">
+  <link th:href="@{/css/admin.css}" rel="stylesheet">
 </head>
-
 <body class="bg">
   <div class="bg">
-  <div class="container" th:object="${impression}">
-    <form th:method="patch" th:action="@{/admin/{userid}/{impid}/edit(userid=${userId},impid=${impId})}">
-      <div hidden>
-        <label for="id">ID</label>
-        <input type="text" th:field="*{id}" disabled>
-      </div>
-      <div class="form-group">
-        <label for="evaluation">評価 :(5段階で評価してね)</label>
-        <input type="text" th:field="*{evaluation}">
-        <span th:errors="*{evaluation}"></span>   
-      </div>
-      <div class="form-group">
-        <label for="impress">感想 :</label>
-        <textarea rows="5" cols="60" th:field="*{impress}"></textarea>
-      </div>
-      <div class="form-group">
-        <label for="date">見た日 :</label>
-        <input type="date" th:field="*{date}">
-        <span th:errors="*{date}"></span>   
-        <div class="form-group">
-        <label for="release">公開 :</label>
-        <input type="checkbox" th:field="*{release}">
-      </div>
-      <div class="choice">
-        <label for="movie">映画タイトル：</label>
-        <select class="form-control" th:field="*{movie}">
-          <th:block th:each="movie : ${@movieRepository.findAll()}">
-            <option th:value="${movie.id}" th:text="${movie.title}">
-            </option>
-          </th:block>
-        </select>
-      </div>
-      <div>
+    <div class="container" th:object="${impression}">
+      <form th:method="patch" th:action="@{/admin/{userid}/{impid}/edit(userid=${userId},impid=${impId})}">
         <div hidden>
-          <label for="user">user</label>
-          <select class="form-control" th:field="*{user}">
-            <th:brock th:each="user : user">
-              <option th:value="${userId}">
-
-              </option>
-            </th:brock>
-          </select>
+          <label for="id">ID</label>
+          <input type="text" th:field="*{id}" disabled>
         </div>
-<div class="botan">
-        <input  class="btn btn-outline-light"   type="submit" value="更新">
-        <input type="reset"  class="btn btn-outline-light"  >
-        <a th:href="@{/admin/{id}/home(id=${userId})}" type="button" class="btn btn-outline-light" >戻る</a>
-
-</div>
-    </form>
-  </div></div>
+        <div class="form-group">
+          <label for="evaluation">評価 :(5段階で評価してね)</label>
+          <input type="text" th:field="*{evaluation}">
+          <span th:errors="*{evaluation}"></span>
+        </div>
+        <div class="form-group">
+          <label for="impress">感想 :</label>
+          <textarea rows="5" cols="60" th:field="*{impress}"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="date">見た日 :</label>
+          <input type="date" th:field="*{date}">
+          <span th:errors="*{date}"></span>
+          <div class="form-group">
+            <label for="release">公開 :</label>
+            <input type="checkbox" th:field="*{release}">
+          </div>
+          <div class="choice">
+            <label for="movie">映画タイトル：</label>
+            <select class="form-control" th:field="*{movie}">
+              <th:block th:each="movie : ${@movieRepository.findAll()}">
+                <option th:value="${movie.id}" th:text="${movie.title}">
+                </option>
+              </th:block>
+            </select>
+          </div>
+          <div>
+            <div hidden>
+              <label for="user">user</label>
+              <select class="form-control" th:field="*{user}">
+                <th:brock th:each="user : user">
+                  <option th:value="${userId}">
+                  </option>
+                </th:brock>
+              </select>
+            </div>
+            <div class="botan">
+              <input class="btn btn-outline-light" type="submit" value="更新">
+              <input type="reset" class="btn btn-outline-light">
+              <a th:href="@{/admin/{id}/home(id=${userId})}" type="button" class="btn btn-outline-light">戻る</a>
+            </div>
+      </form>
+    </div>
+  </div>
 </body>
 
 </html>

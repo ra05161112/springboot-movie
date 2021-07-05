@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
@@ -26,7 +27,8 @@ public class Comment {
   public int id;
 
   /**閲覧者からのコメントnotblank*/
-  @NotBlank
+  @NotBlank(message = "コメントを入力してね")
+  @Size(max = 30,message = "30文字以下でコメントしてね。")
   public String comments;
 
   /**コメントした日時 notnull */

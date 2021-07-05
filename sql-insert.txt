@@ -1,6 +1,8 @@
 insert into movie(title, director) values ('るろうに剣心最終章','大友啓史'),('いとみち','横浜聡子'),('ガイアシンフォ
 ニー','龍村仁'),('息子のままで、女子になる','村岡太樹'),('グラデーション','椎名
 零'),('ザ・ファブル','江口カン'),('ヒノマルソウル','飯塚健'),('キャラクタ－','永井聡'),('Mr.ノーバディ','イリヤ・ナイシュラー'),('クワイエット・プレイス　破られた沈黙','ジョン・クラシンスキー');
+insert into movie(title, director) values ('ゴジラvsコング','アダム・ウィンガード'),('ピーターラビット2 バーナバスの誘惑','ウィル・グラック'),('夏への扉　キミのいる未来へ','三木孝浩'),('機動戦士ガンダム　閃光のハサウェイ','村瀬修功');
+
 
 
 insert into user(username,mastar,password) values('tomoki','false','111111'),('miura','false', '111111');
@@ -14,6 +16,11 @@ insert into impression(evaluation, movie_id,date,release,user_id) values ('5','1
 insert into impression(evaluation, movie_id,date,release,user_id) values ('5','1','2021-06-17','false','2')
 ,('1','9','2021-06-12','true','3'),('4','3','2021-06-19','false','3'),('2','4','2021-06-20','true','3')
 , ('5','6','2021-06-02','false','3'), ('3','6','2021-06-22','true','1'), ('4','2','2021-06-09','true','2'),('5','7','2021-06-08','true','1'),('3','8','2021-07-20','true','1'),('4','1','2021-06-14','true','3'),('1','10','2021-06-20','true','1'),('4','7','2021-06-20','true','3');
+insert into impression (evaluation, movie_id,date,release,user_id,impress) values ('5','33','2021-07-03','true','1','この作品は、やはり問答無用で大スクリーンが似合う。ゴジラもコングも、やりたい放題に破壊行為を続けるが、とにかく爽快感を味わわせてくれる。');
+insert into impression (evaluation, movie_id,date,release,user_id,impress) values ('4','34','2021-07-03','true','1','1の毒味は減ったのかもしれないけど、わかりやすいストーリーと随所に散りばめられたクスッとなる小ネタ（特にジェリービーンズにぶっ飛ぶカトンテイルが好き）、後半のスピード感とワイルドスピードやミッションインポッシブルなどのバロデイ（オマージュ？）などなど子どもから大人まで楽しめる内容になっていました。むしろオトナこそが笑えるシニカルな部分もあって大満足。');
+insert into impression (evaluation, movie_id,date,release,user_id,impress) values ('5','35','2021-07-03','true','1','最近は予告が一番良かったと思える映画が多い中、予告以上の映画に久ぶりに出会えました');
+insert into impression (evaluation, movie_id,date,release,user_id,impress) values ('2','36','2021-07-03','true','1','原作を忠実に再現しているのか知らないけど、肝心の戦闘シーンがおまけみたいに短くて非常に残念。');
+
 
 
 

@@ -10,41 +10,36 @@
   <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
   <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
   <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-  <link th:href="@{/css/hauru.css}"  rel="stylesheet">
-
+  <link th:href="@{/css/hauru.css}" rel="stylesheet">
 
 </head>
-
 <body class="hauru">
   <div class="container">
-
-  <ul th:if="${impression}" th:object="${impression}">
-    <li>タイトル : [[*{movie.title}]]</li>
-    <li>監督 : [[*{movie.director}]]</li>
-    <li>見た日 : [[*{date}]]</li>
-    <li>評価 : [[*{evaluation}]]</li>
-    <li>感想 : [[*{impress}]]</li>
-  </ul>
-  <table class="table">
-    <h4>みんなのコメント</h4>
-    <thead>
-      <th>コメント</th>
-      <th>Date</th>
-    </thead>
-    <tbody>
-      <tr th:each="comment : ${comment}" th:object="${comment}">
-        <td th:text="${comment.comments}"></td>
-        <td th:text="*{date}"></td>
-      </tr>
-    </tbody>
-  </table>
-
-  <h1 th:unless="${impression}" th:text="データがありません"></h1>
-  <a type="button" class="btn btn-outline-light" th:href="@{/viewer/{impid}/comment(impid=*{id})}">コメントをする</a>
-  <a type="button" class="btn btn-outline-light" th:href="@{/viewer/home}">top page</a>
-
-  <br>
-</div>
+    <ul th:if="${impression}" th:object="${impression}">
+      <li>タイトル : [[*{movie.title}]]</li>
+      <li>監督 : [[*{movie.director}]]</li>
+      <li>見た日 : [[*{date}]]</li>
+      <li>評価 : [[*{evaluation}]]</li>
+      <li>感想 : [[*{impress}]]</li>
+    </ul>
+    <table class="table">
+      <h4>みんなのコメント</h4>
+      <thead>
+        <th>コメント</th>
+        <th>Date</th>
+      </thead>
+      <tbody>
+        <tr th:each="comment : ${comment}" th:object="${comment}">
+          <td th:text="${comment.comments}"></td>
+          <td th:text="*{date}"></td>
+        </tr>
+      </tbody>
+    </table>
+    <h1 th:unless="${impression}" th:text="データがありません"></h1>
+    <a type="button" class="btn btn-outline-light" th:href="@{/viewer/{impid}/comment(impid=*{id})}">コメントをする</a>
+    <a type="button" class="btn btn-outline-light" th:href="@{/viewer/home}">top page</a>
+    <br>
+  </div>
   </div>
 </body>
 </html>

@@ -10,17 +10,12 @@
   <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
   <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
   <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-  <link th:href="@{/css/admin.css}"  rel="stylesheet">
+  <link th:href="@{/css/admin.css}" rel="stylesheet">
 </head>
-
 <body class="home">
-  
   <div class="container">
-
     <h2 class="pink">Your Page!</h2>
-
     <table class="table">
-      
       <thead>
         <th>#</th>
         <th>映画タイトル</th>
@@ -30,10 +25,11 @@
         <tr th:each="impression : ${implist}" th:object="${impression}">
           <td th:text="*{id}"></td>
           <td>
-            <a class="page" th:href="@{/admin/{id}/show(id=*{id})}"  th:text="*{movie.title}" ></a>
-            <td>
-              <a th:href="@{/admin/{userid}/{impid}/edit(impid=${impression.id},userid=*{user.id})}"  type="button" class="btn btn-outline-light">編集</a>
-            </td>
+            <a class="page" th:href="@{/admin/{id}/show(id=*{id})}" th:text="*{movie.title}"></a>
+          <td>
+            <a th:href="@{/admin/{userid}/{impid}/edit(impid=${impression.id},userid=*{user.id})}" type="button"
+              class="btn btn-outline-light">編集</a>
+          </td>
           </td>
         </tr>
         <td>
@@ -43,7 +39,7 @@
           <h5>貴方が見た映画</h5>
           <a th:href="@{/}" type="button" class="btn btn-outline-light">Logout</a>
           <a th:href="@{/viewer/home}" type="button" class="btn btn-outline-light">Public Page</a>
-          </div>
+        </div>
       </tbody>
     </table>
     <table class="table">
@@ -83,10 +79,8 @@
           <td></td>
           <td></td>
         </tr>
-
       </tbody>
     </table>
   </div>
- 
 </body>
 </html>

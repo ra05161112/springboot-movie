@@ -12,59 +12,51 @@
   <link th:href="@{/css/admin.css}" rel="stylesheet">
   <title>登録</title>
 </head>
-
 <body class="bg">
   <div class="bg">
-
-  <form th:action="@{/admin/{userid}/new(userid=${userId})}" th:object="${impression}"  th:method="post" novalidate>
-  
-
-    <div class="form-group">
-  
-      <label for="evaluation">評価 :(5段階で評価してね)</label>
-      <input type="text" th:field="${impression.evaluation}">
-      <span th:errors="*{evaluation}"></span>      
-    </div>
-    <div class="form-group">
-      <label for="impress">感想 :</label>
-      <textarea rows="7" cols="60" th:field="*{impress}"></textarea>
-      <span>後でも書き込めるよ</span>
-    </div>
-
-    <div class="form-group">
-      <label for="date">見た日 :</label>
-      <input type="date" th:field="*{date}">
-      <span th:errors="*{date}"></span>   
-     </div>
-    <div class="form-group">
-      <label for="release">公開 :</label>
-      <input type="checkbox" th:field="*{release}">
-    </div>
-    <div class="choice">
-      <label for="movie">映画タイトル：</label>
-      <select class="form-control" th:field="*{movie}">
-        <th:block th:each="movie : ${@movieRepository.findAll()}">
-          <option th:value="${movie.id}" th:text="${movie.title}" >
-          </option>
-        </th:block>
-      </select>
-    </div>
-<div hidden>
-  <label for="user">user</label>
-  <select class="form-control" th:field="*{user}">
-    <th:brock th:each="user : user">
-      <option th:value="${userid}" >
-
-      </option>
-    </th:brock>
-  </select>
-</div>
-<div class="botan">
-  <input class="btn btn-outline-light"  type="submit"  value="投稿" >
-  <a th:href="@{/admin/{id}/home(id=${userid})}" type="button" class="btn btn-outline-light" >戻る</a>
-
-</div>
-  </form></div>
+    <form th:action="@{/admin/{userid}/new(userid=${userId})}" th:object="${impression}" th:method="post" novalidate>
+      <div class="form-group">
+        <label for="evaluation">評価 :(5段階で評価してね)</label>
+        <input type="text" th:field="${impression.evaluation}">
+        <span th:errors="*{evaluation}"></span>
+      </div>
+      <div class="form-group">
+        <label for="impress">感想 :</label>
+        <textarea rows="7" cols="60" th:field="*{impress}"></textarea>
+        <span>後でも書き込めるよ</span>
+      </div>
+      <div class="form-group">
+        <label for="date">見た日 :</label>
+        <input type="date" th:field="*{date}">
+        <span th:errors="*{date}"></span>
+      </div>
+      <div class="form-group">
+        <label for="release">公開 :</label>
+        <input type="checkbox" th:field="*{release}">
+      </div>
+      <div class="choice">
+        <label for="movie">映画タイトル：</label>
+        <select class="form-control" th:field="*{movie}">
+          <th:block th:each="movie : ${@movieRepository.findAll()}">
+            <option th:value="${movie.id}" th:text="${movie.title}">
+            </option>
+          </th:block>
+        </select>
+      </div>
+      <div hidden>
+        <label for="user">user</label>
+        <select class="form-control" th:field="*{user}">
+          <th:brock th:each="user : user">
+            <option th:value="${userid}">
+            </option>
+          </th:brock>
+        </select>
+      </div>
+      <div class="botan">
+        <input class="btn btn-outline-light" type="submit" value="投稿">
+        <a th:href="@{/admin/{id}/home(id=${userid})}" type="button" class="btn btn-outline-light">戻る</a>
+      </div>
+    </form>
+  </div>
 </body>
-
 </html>

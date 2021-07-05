@@ -10,7 +10,7 @@
   <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
   <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
   <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-  <link th:href="@{/css/admin.css}"  rel="stylesheet">
+  <link th:href="@{/css/admin.css}" rel="stylesheet">
 </head>
 
 <body class="home">
@@ -18,11 +18,11 @@
     <h2>Public Page</h2>
     <div class="migi">
       <a th:href="@{/login}" class="btn btn-outline-dark">ログイン</a>
-      </div>
+    </div>
     <table class="table">
       <h5>みんなが見た映画</h5>
       <div class="migikuro">
-      <a  th:href="@{/viewer/all}" class="btn btn-outline-light btn-lg">more...</a>
+        <a th:href="@{/viewer/all}" class="btn btn-outline-light btn-lg">more...</a>
       </div>
       <thead>
         <th>#</th>
@@ -30,13 +30,12 @@
       </thead>
       <tbody>
         <tr th:each="impression : ${implist}" th:object="${impression}" th:if="${impression.release eq true}">
-          <td  th:text="*{id}"></td>
+          <td th:text="*{id}"></td>
           <td>
             <a class="page" th:href="@{/viewer/{id}/show(id=*{id})}" th:text="*{movie.title}"></a>
           </td>
         </tr>
       </tbody>
-      
     </table>
     <table class="table">
       <h4>公開中の映画</h4>
@@ -80,6 +79,5 @@
       </tbody>
     </table>
   </div>
- 
 </body>
 </html>

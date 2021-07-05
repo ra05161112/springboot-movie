@@ -10,14 +10,11 @@
   <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
   <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
   <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-  <link  th:href="@{/css/hauru.css}" rel="stylesheet">
-
+  <link th:href="@{/css/hauru.css}" rel="stylesheet">
 
 </head>
-
-<body  class="kimisui">
+<body class="kimisui">
   <div class="container">
-
     <table class="table">
       <h4>みんなが見た映画 [更新日古い順]</h4>
       <thead>
@@ -34,11 +31,10 @@
         <div class="migikuro">
           <a type="button" class="btn btn-outline-light" th:href="@{/viewer/all/movie}">タイトル順</a>
           <a type="button" class="btn btn-outline-light" th:href="@{/viewer/all/evalu}">評価の高い順</a>
-          <a  type="button" class="btn btn-outline-light"  th:href="@{/viewer/all}">戻る</a>
-          </div>
+          <a type="button" class="btn btn-outline-light" th:href="@{/viewer/all}">戻る</a>
+        </div>
       </tbody>
     </table>
   </div>
- 
 </body>
 </html>

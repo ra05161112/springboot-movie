@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,23 +10,21 @@
   <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
   <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
   <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-  <link  th:href="@{/css/movie.css}"  rel="stylesheet">
+  <link th:href="@{/css/movie.css}" rel="stylesheet">
 </head>
 <body>
-  
-<div class="content">
- <div class="bg">
-   <div class="welcom">
-  <h1 class="welcome">Welcom Back</h1>
-  <h1 class="welcome" sec:authentication="principal.username"></h1> 
-   </div> 
-<div class="index">
-  <a th:href="@{/admin/{id}/home(id=${userId})}" type="button" class="btn btn-outline-dark btn-lg">Your Page</a>
-  <a th:href="@{/viewer/home}" type="button" class="btn btn-outline-dark btn-lg">Public Page</a><br>
-</div>
-  <div sec:authorize="isAuthenticated()">
-  </div>
-</div>
-</div>
+  <div class="content">
+    <div class="bg">
+      <div class="welcom">
+        <h1 class="welcome">Welcom Back</h1>
+        <h1 class="welcome" sec:authentication="principal.username"></h1>
+        <div class="index">
+          <a th:href="@{/admin/{id}/home(id=${userId})}" type="button" class="btn btn-outline-dark btn-lg">Your Page</a>
+          <a th:href="@{/viewer/home}" type="button" class="btn btn-outline-dark btn-lg">Public Page</a><br>
+        </div>
+        <div sec:authorize="isAuthenticated()">
+        </div>
+      </div>
+    </div>
 </body>
 </html>
