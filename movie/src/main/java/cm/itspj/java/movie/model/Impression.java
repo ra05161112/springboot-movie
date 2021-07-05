@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 // import javax.persistence.OneToMany;
 // import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -31,8 +33,9 @@ public class Impression {
   public int id;
 
   /**評価（5段階）notnull */
-  @NotNull
+  @NotNull(message = "5段階で評価してください。")
   @Max(5)
+  @Min(1)
   public int evaluation;
 
   /*adminuserの感想null ok*/
@@ -44,7 +47,7 @@ public class Impression {
 
   /**見た日 notnull*/
   @DateTimeFormat(iso = ISO.DATE)
-  @NotNull
+  @NotNull(message = "日付を入力してください。")
   public LocalDate date;
 
   /**公開か非公開か boolean */

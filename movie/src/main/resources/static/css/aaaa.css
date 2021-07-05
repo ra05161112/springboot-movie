@@ -1,9 +1,44 @@
-body{
+body.login{
   text-align: center;
-  margin-top: 10%;
-  background-color: rgba(230, 114, 137, 0.637);
+  margin-top: 35%;
+
+  background:url(totoro.png);
+  background-size: cover;
+  opacity: 1;
+color: aliceblue;
+  font-weight: bold;
 }
 
 .margin{
   margin-top: 5px;
+}
+
+.container{
+  margin-top: 25%;
+}
+
+body.new{
+  text-align: center;
+  margin-top: 35%;
+color: aliceblue;
+  background:url(totoro.png);
+  background-size: cover;
+  opacity: 1;
+
+  font-weight: bold;
+}
+
+.botan{
+  margin-left: 5%;
+}
+
+.container{
+  background-color: rgba(0, 0, 0, 0.281);
+  width: 30%;
+}
+
+ .leftmargin{
+  background-color: rgba(0, 0, 0, 0.281);
+  width: 30%;
+  margin-left: 36%;
 }

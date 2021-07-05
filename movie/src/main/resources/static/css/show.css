@@ -1,0 +1,46 @@
+div.bg2{
+  background-color: rgba(0, 0, 0, 0.733) ;
+  width: 85%;
+}
+body.show{
+  background-image: url(takeru.jpg);
+  background-size: cover;
+ margin-top: 5%;
+ margin-left: 10%;
+ color: aliceblue;
+ font-size: larger;
+ font-weight: bold;
+}
+table{
+  color: antiquewhite;
+  font-weight: bolder;
+  border: solid 1px;
+  text-align: center;
+ font-size: medium;
+ font-weight: bold;
+}
+th, td {
+  color: azure;
+}
+
+form{
+ font-weight: 500;
+ color: aliceblue;
+}
+
+
+
+a{
+
+  color: aliceblue;
+}
+
+a.page{
+  text-decoration: underline;
+
+}
+
+a:hover{
+  color: rgba(255, 255, 255, 0.596);
+  
+}

@@ -13,7 +13,7 @@
   <title>ログイン</title>
 </head>
 
-<body>
+<body class="login">
   <div class="container">
     <h3>ログイン</h3>
 
@@ -30,12 +30,9 @@
         <input type="password" name="password">
       </div>
       <div class="botan">
-        <button class="btn btn-outline-dark">ログイン</button>
-      </div>
-
+        <button class="btn btn-outline-light">ログイン</button>
     </form>
-    <div class="margin">
-    <a th:href="@{/new/admin}" type="button" class="btn btn-outline-dark">新規登録へ</a>
+    <a th:href="@{/new/admin}" type="button" class="btn btn-outline-light">新規登録へ</a>
     </div>
   </div>
 </body>

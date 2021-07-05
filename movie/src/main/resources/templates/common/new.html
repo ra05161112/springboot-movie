@@ -13,7 +13,7 @@
   <title>登録</title>
 </head>
 
-<body >
+<body class="new">
   <div class="leftmargin">
   <h3>ユーザー登録</h3>
 
@@ -22,22 +22,18 @@
       <div>
       <label for="username">ユーザー名：</label>
       <input type="text" th:field="*{username}">
-      <span th:errors=*{username}></span>
-    </div>
+      <span th:errors="*{username}"></span>   
     <div>
       <label for="username">パスワード：</label>
       <input type="password" th:field="*{password}"> 
-      <span th:errors=*{password}></span>
-    </div>
+      <span th:errors="*{password}"></span>   
     <div class="check" hidden>
       <label for="mastar">管理者：</label>
       <input type="checkbox" th:field="*{mastar}">
     </div>
     <div class="botan">
-    <button class="btn btn-outline-dark">登録</button>
-    </div>
-    <div class="margin">
-      <a  type="button" class="btn btn-outline-dark" th:href="@{/login}">もどる</a>
+    <button class="btn btn-outline-light">登録</button>
+      <a  type="button" class="btn btn-outline-light" th:href="@{/login}">もどる</a>
     </div>
     </div>
   </form>

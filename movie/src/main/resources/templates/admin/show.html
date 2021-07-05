@@ -12,11 +12,12 @@
   <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
   <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
   <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
- <link th:href="@{/css/admin.css}"  rel="stylesheet">
+ <link th:href="@{/css/show.css}"  rel="stylesheet">
 
 </head>
 
 <body class="show">
+  <div class="bg2">
   <div class="container">
     <ul th:if="${impression}" th:object="${impression}">
       <li>タイトル : [[*{movie.title}]]</li>
@@ -30,6 +31,8 @@
       <thead>
         <th>#</th>
         <th>コメント</th>
+        <th>Date</th>
+        <th></th>
       </thead>
       <tbody>
         <tr th:each="comment : ${comment}" th:object="${comment}">
@@ -38,7 +41,7 @@
           <td th:text="*{date}"></td>
           <td colspan=1>
             <form th:method="delete" th:action="@{/admin/{impid}/{id}/show(impid=*{impression.id},id=*{id})}">
-              <button type="submit" value="削除" class="btn btn-outline-danger" onclick="return confirm('消していいの？')">削除</button>
+              <button type="submit" value="削除" class="btn btn-outline-light" onclick="return confirm('消していいの？')">削除</button>
             </form>
           </td>
         </tr>
@@ -46,10 +49,7 @@
     </table>
     <a th:href="@{/admin/{id}/home(id=${userId})}" type="button" class="btn btn-outline-light">戻る</a>
     <h1 th:unless="${impression}" th:text="データがありません"></h1>
-    <br>
-  </ul>
-  <h1 th:unless="${impression}" th:text="データがありません"></h1>
   <a th:href="@{/admin/{userid}/{impid}/edit(impid=*{id},userid=${userId})}" type="button" class="btn btn-outline-light">編集</a>
-  </div>
+  </div></div>
 </body>
 </html>

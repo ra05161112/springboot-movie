@@ -59,7 +59,7 @@ public class AdminController {
   /**編集ページ */
   @GetMapping("/{userid}/{impid}/edit")
   public String edit(@PathVariable int impid,@PathVariable int userid ,Model model, @AuthenticationPrincipal MovieUserDetailsImpl userDetails) {
-    model.addAttribute("impress", iRep.findById(impid));
+    model.addAttribute("impression", iRep.findById(impid));
     model.addAttribute("user", uRep.findById(userid));
     model.addAttribute("userId", userDetails.getUserId());
     model.addAttribute("impId", impid);
@@ -68,9 +68,12 @@ public class AdminController {
 
   /**編集コマンド */
   @PatchMapping("/{userid}/{impid}/edit")
-  public String update(@Validated @ModelAttribute Impression impression, BindingResult result, @PathVariable int impid, @PathVariable int userid){
+  public String update(@Validated @ModelAttribute Impression impression, BindingResult result, @PathVariable int impid, @PathVariable int userid, Model model){
     if(result.hasErrors()) {
-      return "adamin/edit";
+      // model.addAttribute("impress",iRep.findById(impid));
+      model.addAttribute("impId", impid);
+      model.addAttribute("userId", userid);
+      return "admin/edit";
     }
     impression.setId(impid);
     iRep.save(impression);
@@ -88,8 +91,9 @@ public class AdminController {
 
   /**新規投稿コマンド */
   @PostMapping("/{userid}/new")
-  public String newImpress(@PathVariable int userid, @Validated @ModelAttribute Impression impression, BindingResult result, @ModelAttribute MovieUser user) {
+  public String newImpress(@PathVariable int userid, @Validated @ModelAttribute Impression impression, BindingResult result, @ModelAttribute MovieUser user, Model model) {
     if (result.hasErrors()) {
+      model.addAttribute("userId", userid);
       return "admin/new";
     }
     iRep.save(impression);

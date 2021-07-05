@@ -40,11 +40,11 @@
   </table>
 
   <h1 th:unless="${impression}" th:text="データがありません"></h1>
-  <a type="button" class="btn btn-outline-light" th:href="@{/viewer/{impid}/comment(impid=*{id})}">コメントをする</a><br>
-  
+  <a type="button" class="btn btn-outline-light" th:href="@{/viewer/{impid}/comment(impid=*{id})}">コメントをする</a>
+  <a type="button" class="btn btn-outline-light" th:href="@{/viewer/home}">top page</a>
+
   <br>
 </div>
-  <a type="button" class="btn btn-outline-light" th:href="@{/viewer/home}">top page</a>
   </div>
 </body>
 </html>

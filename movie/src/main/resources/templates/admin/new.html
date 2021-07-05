@@ -14,7 +14,7 @@
 </head>
 
 <body class="bg">
-  
+  <div class="bg">
 
   <form th:action="@{/admin/{userid}/new(userid=${userId})}" th:object="${impression}"  th:method="post" novalidate>
   
@@ -23,8 +23,7 @@
   
       <label for="evaluation">評価 :(5段階で評価してね)</label>
       <input type="text" th:field="${impression.evaluation}">
-      <span th:errors="*{evaluation}"></span>
-      
+      <span th:errors="*{evaluation}"></span>      
     </div>
     <div class="form-group">
       <label for="impress">感想 :</label>
@@ -35,8 +34,8 @@
     <div class="form-group">
       <label for="date">見た日 :</label>
       <input type="date" th:field="*{date}">
-      <span th:errors="*{date}"></span>
-    </div>
+      <span th:errors="*{date}"></span>   
+     </div>
     <div class="form-group">
       <label for="release">公開 :</label>
       <input type="checkbox" th:field="*{release}">
@@ -65,7 +64,7 @@
   <a th:href="@{/admin/{id}/home(id=${userid})}" type="button" class="btn btn-outline-light" >戻る</a>
 
 </div>
-  </form>
+  </form></div>
 </body>
 
 </html>

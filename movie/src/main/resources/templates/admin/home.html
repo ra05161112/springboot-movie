@@ -18,14 +18,9 @@
   <div class="container">
 
     <h2 class="pink">Your Page!</h2>
-    <div class="migi">
-    <a th:href="@{/}" type="button" class="btn btn-outline-dark">Logout</a>
-    <a th:href="@{/viewer/home}" type="button" class="btn btn-outline-dark">Public Page</a>
-    </div>
-
 
     <table class="table">
-      <h5>貴方が見た映画</h5>
+      
       <thead>
         <th>#</th>
         <th>映画タイトル</th>
@@ -44,10 +39,15 @@
         <td>
           <a th:href="@{/admin/{userid}/new(userid=*{id})}" type="button" class="btn btn-outline-light">新規作成</a>
         </td>
+        <div class="migikuro">
+          <h5>貴方が見た映画</h5>
+          <a th:href="@{/}" type="button" class="btn btn-outline-light">Logout</a>
+          <a th:href="@{/viewer/home}" type="button" class="btn btn-outline-light">Public Page</a>
+          </div>
       </tbody>
     </table>
     <table class="table">
-      <h5>公開中の映画</h5>
+      <h5 class="kuro">公開中の映画</h5>
       <thead>
         <th colspan=1>#</th>
         <th colspan=2>映画タイトル</th>
@@ -83,6 +83,7 @@
           <td></td>
           <td></td>
         </tr>
+
       </tbody>
     </table>
   </div>

@@ -26,9 +26,8 @@
 
           <label for="date">date :</label>
           <input type="date" th:field="*{date}">
-          <span th:errors="*{date}"></span>
-        </div>
-        <div hidden>
+          <span th:errors="*{date}"></span>   
+          <div hidden>
           <label for="impression">impression</label>
           <select class="form-control" th:field="${comment.impression}">
             

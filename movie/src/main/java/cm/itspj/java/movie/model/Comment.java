@@ -31,7 +31,7 @@ public class Comment {
 
   /**コメントした日時 notnull */
   @DateTimeFormat(iso = ISO.DATE)
-  @NotNull
+  @NotNull(message = "日付を入力してください。")
   public LocalDate date;
 
   @ManyToOne

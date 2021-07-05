@@ -14,7 +14,8 @@
 </head>
 
 <body class="bg">
-  <div class="container" th:object="${impress}">
+  <div class="bg">
+  <div class="container" th:object="${impression}">
     <form th:method="patch" th:action="@{/admin/{userid}/{impid}/edit(userid=${userId},impid=${impId})}">
       <div hidden>
         <label for="id">ID</label>
@@ -23,7 +24,7 @@
       <div class="form-group">
         <label for="evaluation">評価 :(5段階で評価してね)</label>
         <input type="text" th:field="*{evaluation}">
-        <span th:errors="*{evaluation}"></span>
+        <span th:errors="*{evaluation}"></span>   
       </div>
       <div class="form-group">
         <label for="impress">感想 :</label>
@@ -32,12 +33,10 @@
       <div class="form-group">
         <label for="date">見た日 :</label>
         <input type="date" th:field="*{date}">
-        <span th:errors="*{date}"></span>
-      </div>
-      <div class="form-group">
+        <span th:errors="*{date}"></span>   
+        <div class="form-group">
         <label for="release">公開 :</label>
         <input type="checkbox" th:field="*{release}">
-        <span th:errors="*{release}"></span>
       </div>
       <div class="choice">
         <label for="movie">映画タイトル：</label>
@@ -66,7 +65,7 @@
 
 </div>
     </form>
-  </div>
+  </div></div>
 </body>
 
 </html>

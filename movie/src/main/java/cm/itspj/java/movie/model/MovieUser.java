@@ -29,7 +29,7 @@ public class MovieUser {
   public String username;
 
   /**password   6~255文字 */
-  @Size(min = 6, max = 255)
+  @Size(min = 6, max = 255, message = "パスワードは6～255文字で設定してください。")
   public String password;
 
   /**権限　RELO_ADMIN  RELO_USER なくてもよくない？*/
