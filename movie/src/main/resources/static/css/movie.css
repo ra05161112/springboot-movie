@@ -19,8 +19,9 @@ div.welcom {
 h3{
   margin-left: 40px;
   margin-top: 25px;
-
 }
+
+
 
 div.leftmargin{
   margin-left: 5%;
@@ -51,13 +52,12 @@ div.index {
 }
 
 body.logout{
-  color: aliceblue;
   font-weight: bold;
 }
 div.logout{
   text-align: center;
-  margin: 35px;
-  margin-top: 23%;
+  margin-top: 21%;
+  font-size: larger;
 }
 
 div.logout2{
